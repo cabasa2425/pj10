@@ -25,7 +25,7 @@ function PantallaHome({ navigation }) {
 }
 
 function PantallaDetall({route,  navigation }) {
-  //recuperem el paràmetre que li passem
+
   const { nom } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

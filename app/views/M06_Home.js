@@ -30,10 +30,6 @@ export class M06_Home extends React.Component {
         onPress={() => this.props.navigation.navigate('Detall', { nom: 'Sergi Grau' })}
         />
         <BotoPersonalitzat
-        title="Anar a Camera"
-        onPress={() => this.props.navigation.navigate('Camera')}
-        />
-        <BotoPersonalitzat
         title="Anar a Mapes"
         onPress={() => this.props.navigation.navigate('Mapes')}
         />
