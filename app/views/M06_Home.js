@@ -41,14 +41,6 @@ export class M06_Home extends React.Component {
         title="Anar a SQLite"
         onPress={() => this.props.navigation.navigate('SQLite')}
         />
-        <BotoPersonalitzat
-        title="Anar a CSV"
-        onPress={() => this.props.navigation.navigate('CSV')}
-        />
-          <BotoPersonalitzat
-        title="Anar a Suma"
-        onPress={() => this.props.navigation.navigate('Suma')}
-        />
       </View>
       </View>
     );

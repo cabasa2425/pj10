@@ -1,10 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-/**
- * Classe que te un Component BotoPersonalitzat
- * @version 2.0 12.04.2025
- * @author sergi.grau@fje.edu
- */
+
 export const BotoPersonalitzat = ({ title, onPress, style }) => {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
