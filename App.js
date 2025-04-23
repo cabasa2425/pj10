@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import {M06_Home} from './app/views/M06_Home';
 import {M06_Detalls} from './app/views/M06_Detalls';
-import {M07_Camera} from './app/views/M07_Camera';
 import {M08_Mapes} from './app/views/M08_Mapes';
 import {M09_Sqlite} from './app/views/M09_Sqlite';
 
