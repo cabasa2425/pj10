@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import { BotoPersonalitzat } from '../widget/BotoPesonalitzat';
+import { FlipButton } from '../widget/FlipButton/FlipButton';
 
 /**
  * Classe que hereta de Component i que implementa un component
@@ -14,30 +14,40 @@ export class M06_Home extends React.Component {
   render() {
     return (
       <View style={estils.contenidors}>
+        <View style={estils.contenidorLogo}>
+          <Image
+            source={require('../../assets/logo.png')}
+            style={estils.logo}
+            resizeMode="contain"
+          />
+        </View>
 
-      <View style={estils.contenidorLogo}>
-        <Image
-        source={require('../../assets/logo.png')}
-        style={estils.logo}
-        resizeMode="contain"
-        />
-      </View>
-
-      <View style={estils.contenidorBotons} testID="contenidorBotons">
-
-        <BotoPersonalitzat
-        title="Anar a Detall"
-        onPress={() => this.props.navigation.navigate('Detall', { nom: 'Sergi Grau' })}
-        />
-        <BotoPersonalitzat
-        title="Anar a Mapes"
-        onPress={() => this.props.navigation.navigate('Mapes')}
-        />
-        <BotoPersonalitzat
-        title="Anar a SQLite"
-        onPress={() => this.props.navigation.navigate('SQLite')}
-        />
-      </View>
+        <View style={estils.contenidorBotons} testID="contenidorBotons">
+          <FlipButton
+            title="Detall"
+            frontColor="#4caf50"
+            backColor="#66bb6a"
+            onPress={() => this.props.navigation.navigate('Detall', { nom: 'Sergi Grau' })}
+          />
+          
+          <FlipButton
+            title="Mapes"
+            frontColor="#2196f3"
+            backColor="#42a5f5"
+            frontTextColor="white"
+            backTextColor="white"
+            onPress={() => this.props.navigation.navigate('Mapes')}
+          />
+          
+          <FlipButton
+            title="SQLite"
+            frontColor="#ff9800"
+            backColor="#ffeb3b"
+            frontTextColor="black"
+            backTextColor="black"
+            onPress={() => this.props.navigation.navigate('SQLite')}
+          />
+        </View>
       </View>
     );
   }
@@ -48,17 +58,18 @@ const estils = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#c3cfe2',
   },
   contenidorLogo: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 50,
   },
   logo: {
     width: 200,
     height: 100,
   },
   contenidorBotons: {
-    width: '80%',
-    alignSelf: 'center',
+    width: '100%',
+    alignItems: 'center',
   },
 });
