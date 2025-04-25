@@ -4,18 +4,22 @@ import React from 'react';
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import { BotoPersonalitzat } from '../widget/BotoPesonalitzat';
 
-/**
- * Pantalla: Evolución de las Energías Renovables en Europa
- * @version 1.0 25.04.2025
- * @author 
- */
-
 export class M06_Renovables extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        {/* Botón arriba para volver a Home */}
+        <View style={styles.topButton}>
+          <BotoPersonalitzat
+            title="🏠 Volver a Home"
+            onPress={() => this.props.navigation.navigate('Home')}
+            buttonColor="#1565C0"
+            textColor="#FFFFFF"
+          />
+        </View>
+
         <Text style={styles.title}>
-          Energías Renovables en Europa
+          🌱 Energías Renovables en Europa
         </Text>
 
         <Text style={styles.paragraph}>
@@ -24,30 +28,28 @@ export class M06_Renovables extends React.Component {
           mientras que el coste de producción ha caído un 70%.
         </Text>
 
-        {/* Placeholder para gráfico de evolución */}
         <Image
           source={require('../../assets/renewables_trend.png')}
           style={styles.image}
           resizeMode="contain"
         />
         <Text style={styles.caption}>
-          Gráfico 1: Evolución de la potencia instalada (2010–2024)
+          📈 Gráfico 1: Evolución de la potencia instalada (2010–2024)
         </Text>
 
         <Text style={styles.paragraph}>
           Países como Alemania, España y Dinamarca lideran la producción eólica, 
-          aportando conjuntamente más de 40 GW. Por su parte, Francia y Italia 
+          aportando conjuntamente más de 40 GW. Por su parte, Francia e Italia 
           han sido muy activos en solar fotovoltaica, con más de 30 GW cada uno.
         </Text>
 
-        {/* Placeholder para mapa por país */}
         <Image
           source={require('../../assets/renewables_map.png')}
           style={styles.image}
           resizeMode="contain"
         />
         <Text style={styles.caption}>
-          Mapa 1: Reparto geográfico de energías renovables en Europa
+          🗺️ Mapa 1: Reparto geográfico de energías renovables en Europa
         </Text>
 
         <Text style={styles.paragraph}>
@@ -56,8 +58,6 @@ export class M06_Renovables extends React.Component {
           energética y al almacenamiento avanzan en paralelo, dando forma 
           a una red más estable y descentralizada.
         </Text>
-
-        
       </ScrollView>
     );
   }
@@ -68,36 +68,39 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5F8FA',
     paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingTop: 10,
+  },
+  topButton: {
+    marginTop: 10,
+    marginBottom: 20,
+    alignItems: 'flex-start',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#0D47A1',
-    marginBottom: 16,
+    marginBottom: 20,
     textAlign: 'center',
   },
   paragraph: {
-    fontSize: 16,
-    lineHeight: 22,
-    color: '#333333',
-    marginBottom: 16,
+    fontSize: 17,
+    lineHeight: 26,
+    color: '#444',
+    marginBottom: 18,
+    textAlign: 'justify',
   },
   image: {
     width: '100%',
     height: 200,
-    marginBottom: 8,
-    borderRadius: 8,
-    backgroundColor: '#EEE', // placeholder mientras añades la imagen
+    marginBottom: 12,
+    borderRadius: 10,
+    backgroundColor: '#E0E0E0',
   },
   caption: {
-    fontSize: 14,
-    color: '#666666',
+    fontSize: 15,
+    fontStyle: 'italic',
+    color: '#555',
     marginBottom: 24,
     textAlign: 'center',
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    marginBottom: 40,
   },
 });

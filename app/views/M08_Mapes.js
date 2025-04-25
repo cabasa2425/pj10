@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Dimensions, Text, View, ActivityIndicator } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import { BotoPersonalitzat } from '../widget/BotoPesonalitzat';
+
 
 /**
  * Classe que hereta de Component i que implementa un component
@@ -14,8 +16,6 @@ const estils = StyleSheet.create({
   contenidor: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   estilMapa: {
     width: Dimensions.get('window').width,
@@ -25,7 +25,13 @@ const estils = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  botoFlotant: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    zIndex: 10,
+  },
 });
 
 export class M08_Mapes extends React.Component {
@@ -87,8 +93,18 @@ export class M08_Mapes extends React.Component {
     }
 
     return (
+      
       <View style={estils.contenidor}>
+        <BotoPersonalitzat
+          title="🏠 Tornar a Home"
+          onPress={() => this.props.navigation.navigate('Home')}
+          buttonColor="#1565C0"
+          textColor="#FFFFFF"
+        />
+        <Text style={{ marginBottom: 10 }}>La teva ubicació actual:</Text>
+
         {ubicacio ? (
+          
           <MapView 
             style={estils.estilMapa}
             initialRegion={{

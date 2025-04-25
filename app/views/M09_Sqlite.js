@@ -4,6 +4,8 @@ import * as SQLite from 'expo-sqlite';
 import Papa from 'papaparse';
 import * as FileSystem from 'expo-file-system';
 import { Asset } from 'expo-asset';
+import { BotoPersonalitzat } from '../widget/BotoPesonalitzat';
+
 
 /**
  * Component that reads renewable energy data from CSV, 
@@ -81,7 +83,14 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     marginTop: 20,
-  }
+  },
+  botoHomeFlotant: {
+    position: 'absolute',
+    top: 10,
+    left: 20,
+    zIndex: 999,
+  },
+  
 });
 
 export class M09_Sqlite extends React.Component {
@@ -275,6 +284,16 @@ async loadDataFromDB() {
 
   return (
     <View style={styles.container}>
+      {/* Botón fijo arriba */}
+      <View style={styles.botoHomeFlotant}>
+        <BotoPersonalitzat
+          title="🏠 Home"
+          onPress={() => this.props.navigation.navigate('Home')}
+          buttonColor="#1565C0"
+          textColor="#FFFFFF"
+        />
+      </View>
+  
       <View style={styles.header}>
         <Text style={styles.headerText}>Energías Renovables Global</Text>
       </View>
