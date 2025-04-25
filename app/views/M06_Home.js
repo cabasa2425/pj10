@@ -1,3 +1,5 @@
+// M06_Home.js
+
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { FlipButton } from '../widget/FlipButton/FlipButton';
@@ -6,8 +8,7 @@ import { FlipButton } from '../widget/FlipButton/FlipButton';
  * Classe que hereta de Component i que implementa un component
  * independent en l'app. És un component bàsic sense estils
  * Fa servir routing
- * @version 2.0 23.03.2025
- * @author sergi.grau@fje.edu
+ * @version 2.1 25.04.2025
  */
 
 export class M06_Home extends React.Component {
@@ -16,7 +17,7 @@ export class M06_Home extends React.Component {
       <View style={estils.contenidors}>
         <View style={estils.contenidorLogo}>
           <Image
-            source={require('../../assets/logo.png')}
+            source={require('../../assets/logoSuperApp3.png')}
             style={estils.logo}
             resizeMode="contain"
           />
@@ -24,28 +25,29 @@ export class M06_Home extends React.Component {
 
         <View style={estils.buttonsWrapper} testID="contenidorBotons">
           <FlipButton
-            title="Detall"
-            frontColor="#FF8A65"
-            backColor="#FFCCBC"
-            backTextColor="black"
-            backText="Detall: clica para ver información sobre el desarrollador de la app"
-            onPress={() => this.props.navigation.navigate('Detall', { nom: 'Sergi Grau' })}
-          />
-          
-          <FlipButton
-            title="Mapes"
+            title="Renovables"
             frontColor="#4DB6AC"
             backColor="#B2DFDB"
+            frontTextColor="white"
+            backTextColor="black"
+            backText="Renovables: clica para ver la evolución de energías renovables en Europa"
+            onPress={() => this.props.navigation.navigate('Renovables')}
+          />
+
+          <FlipButton
+            title="Mapes"
+            frontColor="#2196F3"
+            backColor="#BBDEFB"
             frontTextColor="white"
             backTextColor="black"
             backText="Mapes: clica para ver tu ubicación"
             onPress={() => this.props.navigation.navigate('Mapes')}
           />
-          
+
           <FlipButton
             title="SQLite"
-            frontColor="#BA68C8"
-            backColor="#E1BEE7"
+            frontColor="#2962FF"
+            backColor="#82B1FF"
             frontTextColor="white"
             backTextColor="black"
             backText="SQLite: clica para ver nuestra base de datos"
@@ -60,22 +62,21 @@ export class M06_Home extends React.Component {
 const estils = StyleSheet.create({
   contenidors: {
     flex: 1,
-    justifyContent: 'center',
-    padding: 20,
+    justifyContent: 'flex-start',
+    padding: 10,
     backgroundColor: '#c3cfe2',
   },
   contenidorLogo: {
     alignItems: 'center',
-    marginBottom: 50,
+    marginBottom: 8,
   },
   logo: {
-    width: 200,
-    height: 100,
+    width: '60%',
+    aspectRatio: 2,    
   },
   buttonsWrapper: {
     width: '100%',
     alignItems: 'center',
-    padding: 20,
     borderRadius: 16,
     backgroundColor: '#ffffff',
     shadowColor: '#000',
@@ -83,5 +84,7 @@ const estils = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+    paddingVertical: 20,
+    marginTop: 0,
   },
 });

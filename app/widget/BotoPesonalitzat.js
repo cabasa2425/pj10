@@ -1,28 +1,36 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export const BotoPersonalitzat = ({ title, onPress, style }) => {
-  return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
-      <Text style={styles.buttonText}>{title}</Text>
-    </TouchableOpacity>
-  );
-};
+export const BotoPersonalitzat = ({
+  title,
+  onPress,
+  buttonColor = '#FFC107', 
+  textColor   = '#000000', 
+}) => (
+  <TouchableOpacity
+    style={[styles.button, { backgroundColor: buttonColor }]}
+    onPress={onPress}
+  >
+    <Text style={[styles.text, { color: textColor }]}>
+      {title}
+    </Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#2196F3',
+    marginVertical: 8,
+    paddingVertical: 14,
     borderRadius: 8,
-    padding: 12,
-    alignItems: 'center',
-    width: '100%',     
-    marginVertical: 8, 
-    height: 50,       
-    justifyContent: 'center'
+    elevation: 3,          
+    shadowColor: '#000',    
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
-  buttonText: {
-    color: 'white',
+  text: {
     fontSize: 16,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
