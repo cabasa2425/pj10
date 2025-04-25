@@ -8,7 +8,8 @@ export const FlipButton = ({
   frontColor = '#00796b', 
   backColor = '#004d40',
   frontTextColor = 'white',
-  backTextColor = 'white'
+  backTextColor = 'white',
+  backText,
 }) => {
   const rotateValue = useRef(new Animated.Value(0)).current;
   const [isFlipped, setIsFlipped] = useState(false);
@@ -24,16 +25,22 @@ export const FlipButton = ({
   });
 
   const flip = () => {
-    Animated.spring(rotateValue, {
-      toValue: isFlipped ? 0 : 180,
-      friction: 8,
-      tension: 10,
-      useNativeDriver: true
-    }).start(() => {
-      setIsFlipped(!isFlipped);
-      if (isFlipped && onPress) onPress();
-    });
+    if (isFlipped) {
+
+      if (onPress) onPress();
+    } else {
+
+      Animated.spring(rotateValue, {
+        toValue: 180,
+        friction: 8,
+        tension: 10,
+        useNativeDriver: true
+      }).start(() => {
+        setIsFlipped(true);
+      });
+    }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -51,7 +58,11 @@ export const FlipButton = ({
           { backgroundColor: backColor, transform: [{ rotateY: backInterpolate }] },
           styles.back
         ]}>
-          <Text style={[styles.buttonText, { color: backTextColor }]}>Toca para {title.toLowerCase()}</Text>
+          <Text style={[styles.buttonText, { color: backTextColor }]}>
+           { backText
+             ? backText
+             : `Toca para ${title.toLowerCase()}` }
+         </Text>
         </Animated.View>
       </TouchableOpacity>
     </View>

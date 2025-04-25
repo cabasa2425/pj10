@@ -13,7 +13,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={M06_Home} />
+        <Stack.Screen name="Home" component={M06_Home} options={{ unmountOnBlur: true }} />
         <Stack.Screen name="Detall" component={M06_Detalls} />
         <Stack.Screen name="Mapes" component={M08_Mapes} />
         <Stack.Screen name="SQLite" component={M09_Sqlite} />

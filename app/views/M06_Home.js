@@ -22,29 +22,33 @@ export class M06_Home extends React.Component {
           />
         </View>
 
-        <View style={estils.contenidorBotons} testID="contenidorBotons">
+        <View style={estils.buttonsWrapper} testID="contenidorBotons">
           <FlipButton
             title="Detall"
-            frontColor="#4caf50"
-            backColor="#66bb6a"
+            frontColor="#FF8A65"
+            backColor="#FFCCBC"
+            backTextColor="black"
+            backText="Detall: clica para ver información sobre el desarrollador de la app"
             onPress={() => this.props.navigation.navigate('Detall', { nom: 'Sergi Grau' })}
           />
           
           <FlipButton
             title="Mapes"
-            frontColor="#2196f3"
-            backColor="#42a5f5"
+            frontColor="#4DB6AC"
+            backColor="#B2DFDB"
             frontTextColor="white"
-            backTextColor="white"
+            backTextColor="black"
+            backText="Mapes: clica para ver tu ubicación"
             onPress={() => this.props.navigation.navigate('Mapes')}
           />
           
           <FlipButton
             title="SQLite"
-            frontColor="#ff9800"
-            backColor="#ffeb3b"
-            frontTextColor="black"
+            frontColor="#BA68C8"
+            backColor="#E1BEE7"
+            frontTextColor="white"
             backTextColor="black"
+            backText="SQLite: clica para ver nuestra base de datos"
             onPress={() => this.props.navigation.navigate('SQLite')}
           />
         </View>
@@ -68,8 +72,16 @@ const estils = StyleSheet.create({
     width: 200,
     height: 100,
   },
-  contenidorBotons: {
+  buttonsWrapper: {
     width: '100%',
     alignItems: 'center',
+    padding: 20,
+    borderRadius: 16,
+    backgroundColor: '#ffffff',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
